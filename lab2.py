@@ -68,7 +68,7 @@ def check_input():
             output = int(raw_input("Number of sides:"))
         except ValueError:
             continue
-        else:
+        else: 
             return output
 
 #name_that_shape()
