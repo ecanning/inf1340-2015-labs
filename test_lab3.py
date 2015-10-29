@@ -12,7 +12,7 @@ from lab3 import days_in_month
 MONTHS_WITH_31 = ["January", "March", "May", "July", "August", "October", "December"]
 MONTHS_WITH_30 = ["April", "June", "September", "November"]
 MONTHS_WITH_28_or_29 = ["February"]
-VALUE_ERROR_TEST_LIST = ["256", "tomorrow", 13]
+VALUE_ERROR_TEST_LIST = ["256", "tomorrow", 13, 18.3]
 
 
 def test_months_with_31():
