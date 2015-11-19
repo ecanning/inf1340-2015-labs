@@ -19,10 +19,25 @@ __license__ = "MIT License"
 # Output the text to a file instead of printing it
 
 
-def bill_of_sale(purchase):
+PROVINCIAL_TAX = .05
+FEDERAL_TAX = .025
 
-    print ("Amount of purchase: {0:.2f}".format(purchase))
-    print ("Provincial tax: {0:.2f}".format(purchase * .05))
-    print ("Federal tax: {0:.2f}".format(purchase * .025))
-    print ("Total tax: {0:.2f}".format(purchase * .075))
-    print ("Total sale: {0:.2f}".format(purchase * 1.075))
+
+def bill_of_sale(purchase, provincial_sales_tax, federal_sales_tax, total_sales_tax, total_price):
+    with open("sales_receipt.txt", "w") as output_file:
+        output_file.write("Amount of purchase: {0:.2f}".format(purchase))
+        output_file.write("\nProvincial tax: {0:.2f}".format(provincial_sales_tax))
+        output_file.write("\nFederal tax: {0:.2f}".format(federal_sales_tax))
+        output_file.write("\nTotal tax: {0:.2f}".format(total_sales_tax))
+        output_file.write("\nTotal sale: {0:.2f}".format(total_price))
+
+
+def calculate_bill(purchase):
+    provincial_sales_tax = purchase * PROVINCIAL_TAX
+    federal_sales_tax = purchase * FEDERAL_TAX
+    total_sales_tax = provincial_sales_tax + federal_sales_tax
+    total_price = purchase + total_sales_tax
+    bill_of_sale(purchase, provincial_sales_tax, federal_sales_tax, total_sales_tax, total_price)
+
+
+calculate_bill(17.89)
