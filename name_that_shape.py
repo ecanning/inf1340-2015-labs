@@ -30,10 +30,11 @@ def name_that_shape(sides):
 
     """
 
+    sides = str(sides)
     if sides.isdigit() or sides[0] is "-" and sides[1:].isdigit():
         sides = int(sides)
     else:
-        raise TypeError
+        return None
 
     if sides == 3:
         return ("triangle")
@@ -52,4 +53,4 @@ def name_that_shape(sides):
     elif sides == 10:
         return ("decagon")
     else:
-        raise ValueError
+        return None

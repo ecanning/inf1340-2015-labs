@@ -80,33 +80,15 @@ class NameThatShapeGUI:
         self.value.set(self.side_entry.get())
         tkMessageBox.showinfo("Response", self.side_entry.get())
 
-        self.main_window = Tkinter.Tk()
-
-        Tkinter.mainloop()
-
     def error_message(self):
-        tkMessageBox.showinfo("Error: Invalid Input", self.side_entry.get())
+        tkMessageBox.showinfo("Error", self.side_entry.get() + " invalid input")
 
     def convert(self):
-
-        # self.value = self.value.set(self.side_entry.get())
-        # self.value = str(self.value)
-        conversion = name_that_shape(self.value)
-        if conversion == ValueError or TypeError or AttributeError:
+        shape = name_that_shape(self.side_entry.get())
+        if shape is None:
             self.error_message()
         else:
-            self.value.set(conversion)
-
-print name_that_shape("3")
+            self.value.set(shape)
 
 # Instantiating the object
 ntsg = NameThatShapeGUI()
-
-"""
-    def name_the_shape(value):
-        answer = name_that_shape(value)
-        if answer == ValueError:
-            return False
-        else:
-            return answer
-"""
